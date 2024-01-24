@@ -89,7 +89,7 @@ posts.forEach((element) => {
                     </div>
                     <div class="post-meta__data">
                         <div class="post-meta__author">${element.author.name}</div>
-                        <div class="post-meta__time">${element.created}</div>
+                        <div class="post-meta__time">${formatDate(element.created)}</div>
                     </div>                    
                 </div>
             </div>
@@ -134,3 +134,9 @@ likeBtn.forEach((element, index) => {
         }
     });
 });
+
+function formatDate(created) {
+    const dateObj = new Date(created)
+    const formattedDate = dateObj.toLocaleDateString("it-IT")
+    return formattedDate
+}
